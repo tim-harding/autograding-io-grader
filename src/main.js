@@ -109,10 +109,12 @@ function run() {
       status = 'error'
       message = error
       score = 0
+      process.exitCode = 1
     } else if (!compareOutput(output, inputs.expectedOutput, inputs.comparisonMethod)) {
       status = 'fail'
       message = `Output does not match expected: ${inputs.expectedOutput} Got: ${output}`
       score = 0
+      process.exitCode = 1
     }
 
     const result = {
@@ -153,6 +155,7 @@ function run() {
     }
 
     core.setOutput('result', btoa(JSON.stringify(result)))
+      process.exitCode = 1
   }
 }
 

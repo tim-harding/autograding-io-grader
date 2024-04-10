@@ -33,4 +33,4 @@ outputs:
 runs:
   using: 'node20'
   main: 'dist/main.js'
-
+continue-on-error: true
